@@ -1,0 +1,152 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    background-color: rgb(54, 57, 64);
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+p {
+    margin: 12px;
+    margin-right: 52px;
+    margin-left: 52px;
+    padding: 6px;
+    font-size: 29px;
+    font-weight: lighter;
+    letter-spacing: 2.5px;
+    word-spacing: 10px;
+    line-height: 60px;
+    text-indent: 70px;
+    text-align: justify;
+}
+
+#glitchContainer {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    margin-right: 12%;
+    margin-left: 12%;
+    padding: 2%;
+    background-color:  rgb(42, 44, 48);
+    border-radius: 20px;
+    box-shadow: 0 2px 7px 0 rgb(0, 0, 0);
+    display: none;
+}
+
+
+input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttonContainer1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonStart {
+    margin: auto;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 95px;
+    font-family: Montserrat;
+    background-color: #480ca8;
+    border-style: none;
+    border-radius: 75px;
+    width: 50%;
+    height: 120px;
+    box-shadow: 0 2px 7px 0 rgb(0, 0, 0);
+    transition: all .45s ease-in-out;
+}
+
+.buttonStart:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 10px 0 #3e0c8d;
+}
+
+#buttonContainer2 {
+    position: relative;
+    height: 20%;
+    width: 100%;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    top: 42%;
+}
+
+.buttonReStart {
+    
+    color: #fff;
+    font-weight: lighter;
+    font-size: 60px;
+    font-family: Montserrat;
+    background-color: #2260a7;
+    border-style: none;
+    border-radius: 50px;
+    width: 800px;
+    height: 80px;
+    box-shadow: 0 2px 7px 0 rgb(0, 0, 0);
+    transition: all .35s ease-in-out;
+}
+
+.buttonReStart:hover {
+    transform: scale(1.09);
+    box-shadow: 0 2px 10px 0 #1b497e;
+}
+
+#buttonContainer3 {
+    position: relative;
+    height: 20%;
+    width: 100%;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    top: 58%;
+}
+
+.buttonReload {
+    color: #fff;
+    font-weight: lighter;
+    font-size: 60px;
+    font-family: Montserrat;
+    background-color: #850e73;
+    border-style: none;
+    border-radius: 50px;
+    width: 580px;
+    height: 80px;
+    box-shadow: 0 2px 7px 0 rgb(0, 0, 0);
+    transition: all .35s ease-in-out;
+}
+
+.buttonReload:hover {
+    transform: scale(1.09);
+    box-shadow: 0 2px 10px 0 #6b0d5d;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100');
+
+@media only screen and (max-width: 1700px) {
+    .buttonStart {
+        font-size: 65px;
+}
+
+    .glitch {
+        font-size: 85px;
+    }
+}
