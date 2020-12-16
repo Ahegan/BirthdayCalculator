@@ -1,5 +1,5 @@
 # Glitch
-This project is a very simple website, only one HTML page. I have just started leanring Java Script so I wanted a project to try what I was learning. The project is tagged as a CSS project I am using Scss from different people to make those *glitches* but the the most important part of what I do is in JS.
+This project is a very simple website, only one HTML page by *glitch* and an index to select the one you want. I have just started leanring Java Script so I wanted a project to try what I was learning. The project is tagged as a CSS project I am using Scss from different people to make those *glitches* but the the most important part of what I do is in JS.
 ### What is Glitch ?
 This website is a *glitching text* generator in which I will add different features while progressing in JS
 ### Futur
