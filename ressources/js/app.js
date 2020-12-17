@@ -1,47 +1,47 @@
 
 var lang;
 var cancel;
+var joining;
 
 function Start() {
     lang = [];
     cancel = 0;
+    joining = ''
 
     alert('Enter word by word what you want in your glitch');
     alert('Whenever you want to stop typing, select cancel or simply press Enter without filling in the field');
 
-    while (true) {
+    while (cancel == 0) {
         var promptL = prompt('Enter a word');
-        if (lang.length < 7 && promptL != '' && promptL != null) { //put a limit of 7 words on the array and make the loop canlelable
-            lang.push(promptL);
+        lang.push(promptL);
 
-        }
-        else if (promptL == null) { //cancel the rest of the function if the user clcik on cancel
+        if (lang.length > 7 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
             cancel = 1;
+            console.log(cancel);
+        }
+        if (promptL == null) { // cancel the whole function if true
             break;
         }
-        else {
-
-            break;
-        }
-
     }
 
-    var joined = (lang.join(' - '));
+    if (cancel == 1) {
 
-    if (cancel == 0 && joined != undefined && joined != '') { // I've noticed that for a reason that i didn't found (DM me if you know) != undefined usually works but also sometimes just don't work and same for !='' so i put both
+        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter');
+        var joined = (lang.join(` ${joining} `));
+
         if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`) && lang.length != 0) {
             document.getElementById('buttonContainer1').style.display = 'none';
             document.getElementById('buttonContainer2').style.display = 'flex';
             document.getElementById('buttonContainer3').style.display = 'flex';
 
+            //put typed informations about the glitch on the HTML
 
-            joined = (lang.join(' - '));
             document.getElementById('joined').innerHTML = '<h1 id=\"glitch\" class=\"glitch\" data-text=\"' + joined + '\">' + joined + '</h1>';
             document.getElementById('glitchContainer').style.display = 'block';
 
         }
-    }
 
+    }
 
 }
 
@@ -49,40 +49,37 @@ function Start() {
 function ReStart() {
     lang = [];
     cancel = 0;
+    joining = ''
 
     alert('Same method as earlier');
 
-    while (true) {
+    while (cancel == 0) {
         var promptL = prompt('Enter a word');
+        lang.push(promptL);
 
-        if (lang.length < 7 && promptL != '' && promptL != null) { //put a limit of 7 words on the array and make the loop canlelable
-            lang.push(promptL);
-        }
-        else if (promptL == null) { //cancel the rest of the function if the user clcik on cancel
+        if (lang.length > 7 || promptL == '' && promptL != null) {
             cancel = 1;
+            console.log(cancel);
+        }
+        if (promptL == null) {
             break;
         }
-        else {
-
-            break;
-        }
-
     }
 
+    if (cancel == 1) {
 
-    var joined = (lang.join(' - '));
+        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter');
+        var joined = (lang.join(` ${joining} `));
 
-    if (cancel == 0 && joined != undefined && joined != '') { // I've noticed that for a reason that i didn't found (DM me if you know) != undefined usually works but also sometimes just don't work and same for !='' so i put both
         if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`) && lang.length != 0) {
-            document.getElementById('buttonContainer2').style.display = 'flex';
-            document.getElementById('buttonContainer3').style.display = 'flex';
 
+            //put typed informations about the glitch on the HTML
 
-            joined = (lang.join(' - '));
             document.getElementById('joined').innerHTML = '<h1 id=\"glitch\" class=\"glitch\" data-text=\"' + joined + '\">' + joined + '</h1>';
             document.getElementById('glitchContainer').style.display = 'block';
 
         }
+
     }
 
 
