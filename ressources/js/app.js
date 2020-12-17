@@ -17,7 +17,10 @@ function Start() {
 
         if (lang.length > 7 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
             cancel = 1;
-            console.log(cancel);
+
+            if (promptL == '') { //useless but cleaner, don't judge
+                lang.pop();
+            }
         }
         if (promptL == null) { // cancel the whole function if true
             break;
@@ -25,8 +28,10 @@ function Start() {
     }
 
     if (cancel == 1) {
-
-        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter');
+        
+        if (lang.length > 1) { //don' ask a joining sign if there is only one word
+        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
+        }
         var joined = (lang.join(` ${joining} `));
 
         if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`) && lang.length != 0) {
@@ -57,18 +62,23 @@ function ReStart() {
         var promptL = prompt('Enter a word');
         lang.push(promptL);
 
-        if (lang.length > 7 || promptL == '' && promptL != null) {
+        if (lang.length > 7 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
             cancel = 1;
-            console.log(cancel);
+
+            if (promptL == '') { //useless but cleaner, don't judge
+                lang.pop();
+            }
         }
-        if (promptL == null) {
+        if (promptL == null) { // cancel the whole function if true
             break;
         }
     }
 
     if (cancel == 1) {
-
-        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter');
+        
+        if (lang.length > 1) { //don' ask a joining sign if there is only one word
+        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
+        }
         var joined = (lang.join(` ${joining} `));
 
         if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`) && lang.length != 0) {
