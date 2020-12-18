@@ -41,7 +41,7 @@ function Start() {
 
             //put typed informations about the glitch on the HTML
 
-            document.getElementById('joined').innerHTML = '<h1 id=\"glitch\" class=\"glitch\" data-text=\"' + joined + '\">' + joined + '</h1>';
+            document.getElementById('joined').innerHTML = `<h1 id="glitch" class="glitch" data-text="${joined}">${joined}</h1>`;
             document.getElementById('glitchContainer').style.display = 'block';
 
         }
@@ -85,7 +85,7 @@ function ReStart() {
 
             //put typed informations about the glitch on the HTML
 
-            document.getElementById('joined').innerHTML = '<h1 id=\"glitch\" class=\"glitch\" data-text=\"' + joined + '\">' + joined + '</h1>';
+            document.getElementById('joined').innerHTML = `<h1 id="glitch" class="glitch" data-text="${joined}">${joined}</h1>`;
             document.getElementById('glitchContainer').style.display = 'block';
 
         }
