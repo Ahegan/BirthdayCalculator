@@ -27,14 +27,14 @@ function Start() {
         }
     }
 
-    if (cancel == 1) {
+    if (cancel == 1 && lang.length != 0) {
         
         if (lang.length > 1) { //don' ask a joining sign if there is only one word
         joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
         }
         var joined = (lang.join(` ${joining} `));
 
-        if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`) && lang.length != 0) {
+        if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`)) {
             document.getElementById('buttonContainer1').style.display = 'none';
             document.getElementById('buttonContainer2').style.display = 'flex';
             document.getElementById('buttonContainer3').style.display = 'flex';
@@ -73,15 +73,15 @@ function ReStart() {
             break;
         }
     }
-
-    if (cancel == 1) {
+    
+    if (cancel == 1 && lang.length != 0) {
         
         if (lang.length > 1) { //don' ask a joining sign if there is only one word
         joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
         }
         var joined = (lang.join(` ${joining} `));
 
-        if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`) && lang.length != 0) {
+        if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`)) {
 
             //put typed informations about the glitch on the HTML
 
