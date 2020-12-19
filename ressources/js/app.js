@@ -13,9 +13,15 @@ function Start() {
 
     while (cancel == 0) {
         var promptL = prompt('Enter a word');
-        lang.push(promptL);
+        if (promptL.length < 9) {
+            lang.push(promptL);
+        }
+        else {
+            alert('/!\\ your word must contain less than 9 characters /!\\')
+        }
 
-        if (lang.length > 7 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
+
+        if (lang.length > 2 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
             cancel = 1;
 
             if (promptL == '') { //useless but cleaner, don't judge
@@ -28,9 +34,17 @@ function Start() {
     }
 
     if (cancel == 1 && lang.length != 0) {
-        
+
         if (lang.length > 1) { //don' ask a joining sign if there is only one word
-        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
+            while (true) {
+                joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
+                if (joining.length < 2) {
+                    break;
+                }
+                else {
+                    alert('/!\\ enter only one character /!\\')
+                }
+            }
         }
         var joined = (lang.join(` ${joining} `));
 
@@ -60,9 +74,14 @@ function ReStart() {
 
     while (cancel == 0) {
         var promptL = prompt('Enter a word');
-        lang.push(promptL);
+        if (promptL.length < 9) {
+            lang.push(promptL);
+        }
+        else {
+            alert('/!\\ your word must contain less than 9 characters /!\\')
+        }
 
-        if (lang.length > 7 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
+        if (lang.length > 2 || promptL == '' && promptL != null) { // cancel the loop if true and make the rest of the function work
             cancel = 1;
 
             if (promptL == '') { //useless but cleaner, don't judge
@@ -73,11 +92,19 @@ function ReStart() {
             break;
         }
     }
-    
+
     if (cancel == 1 && lang.length != 0) {
-        
+
         if (lang.length > 1) { //don' ask a joining sign if there is only one word
-        joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
+            while (true) {
+                joining = prompt('Enter the sign that will separate the different words already entered, if you just want them to be separated by a space, press enter or cancel');
+                if (joining.length < 2) {
+                    break;
+                }
+                else {
+                    alert('/!\\ enter only one character /!\\')
+                }
+            }
         }
         var joined = (lang.join(` ${joining} `));
 
