@@ -50,6 +50,7 @@ function Start() {
 
         if (confirm(`The glitch that will be displayed is : ${joined} \nConfirm to continue, cancel to return to the present page without generating the glitch.`)) {
             document.getElementById('buttonContainer1').style.display = 'none';
+            document.getElementById('buttonContainer1-1').style.display = 'none';
             document.getElementById('buttonContainer2').style.display = 'flex';
             document.getElementById('buttonContainer3').style.display = 'flex';
 
