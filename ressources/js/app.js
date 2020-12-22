@@ -3,7 +3,7 @@ var lang;
 var cancel;
 var joining;
 
-function Start() {
+function start() {
     lang = [];
     cancel = 0;
     joining = ''
@@ -66,7 +66,7 @@ function Start() {
 }
 
 
-function ReStart() {
+function reStart() {
     lang = [];
     cancel = 0;
     joining = ''
@@ -123,6 +123,6 @@ function ReStart() {
 
 }
 
-function Reload() {
+function reload() {
     window.location.reload();
 }
