@@ -18,8 +18,7 @@
 
   <div id="glitchContainer">
     <div id="wrapper">
-      <div id="joined">
-
+      <div id="glitch">
       </div>
 
     </div>
@@ -34,8 +33,8 @@
       <input type="button" class="buttonBack" id="buttonBack" value="Back to the main page">
     </a>
   </div>
-    
-  
+
+
 
   <div id="buttonContainer2">
     <input type="button" class="buttonReStart" id="buttonReStart" onclick="reStart()" value="Generate a new glitch">
@@ -44,6 +43,13 @@
   <div id="buttonContainer3">
     <input type="button" class="buttonReload" id="buttonReload" onclick="reload()" value="Reload">
   </div>
+
+  <div id="colorPicker">
+    <span>Background color of the glitch (HEX)</span> 
+    <input id="input" placeholder="#XXXXXX" maxlength="9">  
+    <button onclick="replace()" id="replaceButton">Replace</button>
+  </div>
+
 
   <script src="../js/app.js"></script>
 </body>

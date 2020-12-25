@@ -56,8 +56,9 @@ function start() {
 
             //put typed informations about the glitch on the HTML
 
-            document.getElementById('joined').innerHTML = `<h1 id="glitch" class="glitch" data-text="${joined}">${joined}</h1>`;
+            document.getElementById('glitch').innerHTML = `<h1 id="glitch" class="glitch" data-text="${joined}">${joined}</h1>`;
             document.getElementById('glitchContainer').style.display = 'block';
+            document.getElementById("colorPicker").style.display = "flex";
 
         }
 
@@ -113,8 +114,7 @@ function reStart() {
 
             //put typed informations about the glitch on the HTML
 
-            document.getElementById('joined').innerHTML = `<h1 id="glitch" class="glitch" data-text="${joined}">${joined}</h1>`;
-            document.getElementById('glitchContainer').style.display = 'block';
+            document.getElementById('glitch').innerHTML = `<h1 id="glitch" class="glitch" data-text="${joined}">${joined}</h1>`;
 
         }
 
@@ -126,3 +126,23 @@ function reStart() {
 function reload() {
     window.location.reload();
 }
+
+
+function replace() {
+    var x = document.getElementById('input').value;
+    if (x.substring(0, 1) == '#' && x.length >= 7) {
+
+        document.getElementById("glitchContainer").style.backgroundColor = x;
+        console.log(`changed for ${x}`);
+
+    }
+    else if (x.length == 8 || x.length == 6){
+
+        x = `#${x}`;
+        document.getElementById("glitchContainer").style.backgroundColor = x;
+        console.log(`changé pour ${x}`)
+
+    }
+
+
+};
