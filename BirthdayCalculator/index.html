@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <title>Birthday calculator</title>
+
+  <link rel="stylesheet" href="ressources/css/style.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="author" content="SIMIONI Enzo">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <form id="dataUser">
+    <div class="form-item">
+      <label for="month">Birth month : </label>
+      <input type="text" placeholder="12" name="month">
+      <span id="span1">please enter a birth month</span>
+    </div>
+
+    <div class="form-item">
+      <label for="day">Birth day : </label>
+      <input type="text" placeholder="01" name="day">
+      <span id="span2">please enter a birth day</span>
+    </div>
+
+    <div class="form-item">
+      <label for="yearStart">Starting year : </label>
+      <input type="text" placeholder="2020" name="yStart">
+      <span id="span3">please enter a starting year</span>
+    </div>
+    <div class="form-item">
+      <label for="yearEnd">Ending year : </label>
+      <input type="text" placeholder="2080" name="yEnd">
+      <span id="span4">please enter an ending year</span>
+    </div>
+
+    <input type="submit">
+
+  </form>
+
+  <div id="result"></div>
+
+
+
+  <script src="ressources/js/app.js"></script>
+</body>
+
+</html>
