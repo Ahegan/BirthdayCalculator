@@ -25,16 +25,6 @@ p {
     text-align: justify;
 }
 
- 
-#gridContainer {
-    display: grid;
-    grid-template: 1fr 1fr 1fr 1fr 2fr / 1fr 3fr 3fr 1fr;
-}
-
-#gridItem6 {
-    grid-column-start: 3;
-    grid-row-start: 3;
-}
 
 
 form span {
@@ -44,8 +34,52 @@ form span {
     text-transform: capitalize;
 }
 
-
-
+#pop-up {
+    display: none;
+}
+#pop-up-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(153, 153, 153, 0.308);
+}
+#window {
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: black;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 2px solid  rgba(153, 153, 153);
+}
+#window p {
+    font-size: 20px;
+    color: inherit;
+    font-weight: inherit;
+    letter-spacing: 2px;
+    word-spacing: 7px;
+    padding: 20px;
+}
+#window button {
+    display: block;
+    text-align: right;
+    margin: 5px 0px -25px;
+    width: 100%;
+    direction: rtl;
+    font-size: 22px;
+    font-family: Verdana;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+#window button:hover {
+    text-decoration: underline;
+}
 
 #result {
     margin-top: 20px;

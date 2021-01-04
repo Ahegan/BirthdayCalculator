@@ -16,24 +16,24 @@
   <form id="dataUser">
     <div class="form-item1">
       <label for="month">Birth month : </label>
-      <input type="text" placeholder="12" name="month">
+      <input type="text" placeholder="12" name="month" minlength="2" maxlength="2">
       <span id="span1">please enter a birth month</span>
     </div>
 
     <div class="form-item2">
       <label for="day">Birth day : </label>
-      <input type="text" placeholder="01" name="day">
+      <input type="text" placeholder="01" name="day" minlength="2" maxlength="2">
       <span id="span2">please enter a birth day</span>
     </div>
 
     <div class="form-item3">
       <label for="yearStart">Starting year : </label>
-      <input type="text" placeholder="2020" name="yStart">
+      <input type="text" placeholder="2020" name="yStart" minlength="4" maxlength="4">
       <span id="span3">please enter a starting year</span>
     </div>
     <div class="form-item4">
       <label for="yearEnd">Ending year : </label>
-      <input type="text" placeholder="2080" name="yEnd" max="4">
+      <input type="text" placeholder="2080" name="yEnd" minlength="4" maxlength="4" >
       <span id="span4">please enter an ending year</span>
     </div>
 
@@ -41,7 +41,14 @@
 
   </form>
 
-
+  <div id="pop-up">
+    <div id="pop-up-background">
+      <div id="window">
+        <button onclick="closepop()">x</button>
+        <p>Enter a corect values</p>
+      </div>
+    </div>
+  </div>
 
   <div id="result"></div>
 
