@@ -25,6 +25,18 @@ p {
     text-align: justify;
 }
 
+ 
+#gridContainer {
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 2fr / 1fr 3fr 3fr 1fr;
+}
+
+#gridItem6 {
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
+
+
 form span {
     display: none;
     color: rgb(255, 64, 64);
@@ -32,12 +44,17 @@ form span {
     text-transform: capitalize;
 }
 
+
+
+
 #result {
     margin-top: 20px;
     margin-left: 20px;
     line-height: 50px;
 
 }
+
+
 
 @font-face {
     font-family: 'Montserrat';

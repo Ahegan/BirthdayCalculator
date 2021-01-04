@@ -17,7 +17,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: repeat(auto-fill, 370px);
+    grid-template-columns: repeat(auto-fill, 500px);
     gap: 30px;
     justify-content: center;
     max-width: 1800px;
@@ -42,3 +42,10 @@
 .overview :hover {
     transform: scale(1.02);
 }
+
+@media only screen and (max-width: 1700px) {
+    .grid-container {
+    grid-template-columns: repeat(auto-fill, 370px);
+    }
+
+  }

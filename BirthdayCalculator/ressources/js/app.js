@@ -2,7 +2,7 @@ var input = document.getElementById("dataUser").getElementsByTagName("input");
 var empty;
 
 //define error messages for empties inputs
-document.getElementById("dataUser").addEventListener("focusout", function () {
+document.getElementById("dataUser").addEventListener("input", function () {
     empty = 0;
     for (i = 1; i < input.length; i++) {
         if (input[i - 1].value == "") {
@@ -24,9 +24,10 @@ var yEnd;
 
 document.getElementById("dataUser").addEventListener("submit", function (e) {
     e.preventDefault();
+    result.innerHTML = "";
     if (true/* empty == 0 */) {
-        month = Number(input.namedItem("month").value);
-        day = Number(input.namedItem("day").value);
+        month = input.namedItem("month").value;
+        day = input.namedItem("day").value;
         yStart = Number(input.namedItem("yStart").value);
         yEnd = Number(input.namedItem("yEnd").value);
 
@@ -36,8 +37,9 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
 
         for (i = yStart; i <= yEnd; i++) {
 
-            x = new Date(`${i}-0${month}-0${day}T12:00:00`);
+            x = new Date(`${i}-${month}-${day}T12:00:00`);
             x = x.toString();
+            console.log(`${i}-${month}-${day}T12:00:00`);
 
             if (x.substring(0, 3) == "Mon") {
                 y = "Monday"
@@ -61,7 +63,7 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
                 y = "Sunday"
             }
             result.innerHTML += `In ${i}, your birthday will be on a ${y} <br>`;
-            console.log(new Date(`${i}-0${month}-0${day}T12:00:00`));
+            
 
         }
 
