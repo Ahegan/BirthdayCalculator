@@ -13,39 +13,60 @@
 
 <body>
 
-  <form id="dataUser">
-    <div class="form-item1">
-      <label for="month">Birth month : </label>
-      <input type="text" placeholder="12" name="month" minlength="2" maxlength="2">
-      <span id="span1">please enter a birth month</span>
+  <div class="grid-container">
+
+    <div class="grid-item">
+      <form id="dataUser">
+        <div class="form-item1">
+          <label for="month">Birth month : </label>
+          <input type="text" placeholder="12" name="month" minlength="2" maxlength="2">
+          <span id="span1">please enter a birth month</span>
+        </div>
+
+        <div class="form-item2">
+          <label for="day">Birth day : </label>
+          <input type="text" placeholder="01" name="day" minlength="2" maxlength="2">
+          <span id="span2">please enter a birth day</span>
+        </div>
+
+        <div class="form-item3">
+          <label for="yearStart">Starting year : </label>
+          <input type="text" placeholder="2020" name="yStart" minlength="4" maxlength="4">
+          <span id="span3">please enter a starting year</span>
+        </div>
+        <div class="form-item4">
+          <label for="yearEnd">Ending year : </label>
+          <input type="text" placeholder="2080" name="yEnd" minlength="4" maxlength="4">
+          <span id="span4">please enter an ending year</span>
+        </div>
+
+        <input type="submit" id="submitButton">
     </div>
 
-    <div class="form-item2">
-      <label for="day">Birth day : </label>
-      <input type="text" placeholder="01" name="day" minlength="2" maxlength="2">
-      <span id="span2">please enter a birth day</span>
-    </div>
+    </form>
 
-    <div class="form-item3">
-      <label for="yearStart">Starting year : </label>
-      <input type="text" placeholder="2020" name="yStart" minlength="4" maxlength="4">
-      <span id="span3">please enter a starting year</span>
-    </div>
-    <div class="form-item4">
-      <label for="yearEnd">Ending year : </label>
-      <input type="text" placeholder="2080" name="yEnd" minlength="4" maxlength="4" >
-      <span id="span4">please enter an ending year</span>
-    </div>
+    <form id="selector">
+      <div class="grid-item">
+        <input type="checkbox" name="leap" class="option-selecttor">
+        <label for="leap">Highlight leap years</label> <br>
+        <input type="checkbox" name="wE" class="option-selecttor">
+        <label for="leap">Only display years where your birthday is on a week-end</label> <br>
+        <input type="checkbox" name="" class="option-selecttor">
+        <label for="leap">XXX</label> <br>
+        <input type="checkbox" name="" class="option-selecttor">
+        <label for="leap">XXX</label> <br>
+        <input type="checkbox" name="" class="option-selecttor">
+        <label for="leap">XXX</label> <br>
+      </div>
+    </form>
 
-    <input type="submit" id="submitButton">
-
-  </form>
+  </div>
 
   <div id="pop-up">
     <div id="pop-up-background">
       <div id="window">
-        <button onclick="closepop()">x</button>
-        <p>Enter a corect values</p>
+        <button id="close-cross">x</button>
+        <p id="alert-message">Enter a corect values</p>
       </div>
     </div>
   </div>
