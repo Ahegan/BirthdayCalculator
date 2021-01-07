@@ -25,7 +25,7 @@ var yEnd;
 document.getElementById("dataUser").addEventListener("submit", function (e) {
     e.preventDefault();
     result.innerHTML = "";
-    var verifStart ="";
+    var verifStart = "";
     var verifEnd = "";
 
     if (empty === 0) {
@@ -43,44 +43,51 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
             for (i = yStart; i <= yEnd; i++) {
 
                 currentDate = new Date(`${i}-${month}-${day}T12:00:00`);
-                currentDate = currentDate.toString();
-                if (currentDate.substring(0, 3) === "Mon") {
-                    fullDay = "Monday"
+                
+                switch (currentDate.getDay()) {
+                    case 0:
+                        fullDay = "Sunday";
+                        break;
+                    case 1:
+                        fullDay = "Monday";
+                        break;
+                    case 2:
+                        fullDay = "Tuesday";
+                        break;
+                    case 3:
+                        fullDay = "Wednsday";
+                        break;
+                    case 4:
+                        fullDay = "Thursday";
+                        break;
+                    case 5:
+                        fullDay = "Friday";
+                        break;
+                    case 6:
+                        fullDay = "Saturday";
+                        break;
                 }
-                if (currentDate.substring(0, 3) === "Tue") {
-                    fullDay = "Tuesday"
-                }
-                if (currentDate.substring(0, 3) === "Wen") {
-                    fullDay = "Wednsday"
-                }
-                if (currentDate.substring(0, 3) === "Thu") {
-                    fullDay = "Thursday"
-                }
-                if (currentDate.substring(0, 3) === "Fri") {
-                    fullDay = "Friday"
-                }
-                if (currentDate.substring(0, 3) === "Sat") {
-                    fullDay = "Saturday"
-                }
-                if (currentDate.substring(0, 3) === "Sun") {
-                    fullDay = "Sunday"
-                }
+             
                 result.innerHTML += `<div id="${i}" class="result-div" style="position: relative;">In ${i}, your birthday will be on a ${fullDay} </div>` //`In ${i}, your birthday will be on a ${fullDay} <br>`;
 
 
             }
         }
-        else if (Number(yEnd)-Number(yStart) > 2500){
+        else if (Number(yEnd) - Number(yStart) > 2500) {
             document.getElementById("pop-up").style.display = "initial"
             document.getElementById("alert-message").innerHTML = "Too many years to calculate"
         }
-        else if (verifStart == "Invalid Date" ||verifEnd == "Invalid Date") {
+        else if (verifStart == "Invalid Date" || verifEnd == "Invalid Date") {
             document.getElementById("pop-up").style.display = "initial"
             document.getElementById("alert-message").innerHTML = "Please enter numeric value"
         }
 
-
-
+        //reset options checkboxes to false
+        for (i = 0; i <= 4; i++){
+            let inpurSelectorArray = document.getElementById("selector").querySelectorAll("input");
+            inpurSelectorArray[i].checked = false;
+        }
+        
     }
     return false;
 })
@@ -92,9 +99,8 @@ document.getElementById("close-cross").addEventListener("click", function () {
 var leap = [];
 //options selector display an hide
 document.getElementById("selector").addEventListener("click", function (e) {
-    //highlights leaps years
+    //display a litle circle on leap years
     if (e.path[0].checked === true && e.path[0].name === "leap") {
-
         for (i = 0; i <= yEnd - yStart; i++) {
 
             let calculatedYear = Number(yStart) + i;
@@ -102,23 +108,22 @@ document.getElementById("selector").addEventListener("click", function (e) {
             leapCheck = leapCheck.toString();
 
             if (leapCheck.substring(4, 7) === "Feb") {
-                document.getElementById(calculatedYear).innerHTML += ` <div class="leap" title="${calculatedYear} is a leap year"></div>`;
+                document.getElementById(calculatedYear).innerHTML += `<div class="leap" title="${calculatedYear} is a leap year"></div>`;
             }
         }
 
-    }
-    else if (e.path[0].checked === false && e.path[0].name === "leap"){
-        for (i = 0; i <= yEnd - yStart; i++){
+    } // stop displaying leap years circle
+    else if (e.path[0].checked === false && e.path[0].name === "leap") {
+        for (i = 0; i <= yEnd - yStart; i++) {
             let calculatedYear = Number(yStart) + i;
             let leapCheck = new Date(`${calculatedYear}-02-29T12:00:00`);
             leapCheck = leapCheck.toString();
 
             if (leapCheck.substring(4, 7) === "Feb") {
-            console.log(document.getElementById(calculatedYear).innerHTML.substring(43, 100));
+                document.getElementById(calculatedYear).innerHTML = document.getElementById(calculatedYear).innerHTML.replace(`<div class="leap" title="${calculatedYear} is a leap year"></div>`, "");
 
             }
         }
     }
-    
-})
 
+})

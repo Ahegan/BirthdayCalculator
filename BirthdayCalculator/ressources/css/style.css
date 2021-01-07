@@ -40,6 +40,7 @@ form span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+    row-gap: 50px;
     justify-items: center;
     align-items: center;
 }
@@ -96,9 +97,7 @@ form span {
 }
 
 #result {
-    margin-top: 20px;
-    margin-left: 20px;
-    line-height: 50px;
+    line-height: 45px;
     font-size: 30px;
 
 }
@@ -116,7 +115,6 @@ form span {
 }
 .leap:hover {
     opacity: 1;
-    transform: scale(1.05), translate(-30%, -50%);
 }
 
 
