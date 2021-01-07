@@ -65,7 +65,7 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
                 if (currentDate.substring(0, 3) === "Sun") {
                     fullDay = "Sunday"
                 }
-                result.innerHTML += `<div id="${i}" class="result-div">In ${i}, your birthday will be on a ${fullDay}</div>` //`In ${i}, your birthday will be on a ${fullDay} <br>`;
+                result.innerHTML += `<div id="${i}" class="result-div" style="position: relative;">In ${i}, your birthday will be on a ${fullDay} </div>` //`In ${i}, your birthday will be on a ${fullDay} <br>`;
 
 
             }
@@ -98,18 +98,27 @@ document.getElementById("selector").addEventListener("click", function (e) {
         for (i = 0; i <= yEnd - yStart; i++) {
 
             let calculatedYear = Number(yStart) + i;
-            console.log(calculatedYear);
             let leapCheck = new Date(`${calculatedYear}-02-29T12:00:00`);
             leapCheck = leapCheck.toString();
 
             if (leapCheck.substring(4, 7) === "Feb") {
-                document.getElementById(calculatedYear).innerHTML += " leap"
-                
+                document.getElementById(calculatedYear).innerHTML += ` <div class="leap" title="${calculatedYear} is a leap year"></div>`;
             }
         }
 
     }
+    else if (e.path[0].checked === false && e.path[0].name === "leap"){
+        for (i = 0; i <= yEnd - yStart; i++){
+            let calculatedYear = Number(yStart) + i;
+            let leapCheck = new Date(`${calculatedYear}-02-29T12:00:00`);
+            leapCheck = leapCheck.toString();
+
+            if (leapCheck.substring(4, 7) === "Feb") {
+            console.log(document.getElementById(calculatedYear).innerHTML.substring(43, 100));
+
+            }
+        }
+    }
     
 })
 
-// pour année bisecurrentDatetile verifier que le 29 du mois de février apparît en février et pas en mars

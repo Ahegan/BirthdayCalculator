@@ -99,9 +99,25 @@ form span {
     margin-top: 20px;
     margin-left: 20px;
     line-height: 50px;
+    font-size: 30px;
 
 }
-
+.leap {
+    position: absolute;
+    top: 30%;
+    transform: translate(-30%, -50%);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color:rgb(37, 158, 63);
+    opacity: .4;
+    transition: all .4s ease-in-out;
+}
+.leap:hover {
+    opacity: 1;
+    transform: scale(1.05), translate(-30%, -50%);
+}
 
 
 
@@ -110,4 +126,14 @@ form span {
     font-style: normal;
     font-weight: 100;
     src: url(../font/Montserrat.woff2) format('woff2');
+}
+
+@media only screen and (max-width: 1700px){
+    #result {
+        font-size: 25px;
+    }
+    .leap {
+        width: 25px;
+        height: 25px;
+    }
 }
