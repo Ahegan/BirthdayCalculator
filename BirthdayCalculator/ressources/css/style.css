@@ -49,8 +49,12 @@ form span {
     display: block;
 }
 
+/* modal pop-up */
+
 #pop-up {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .15s, opacity 0.20s linear;
 }
 #pop-up-background {
     position: absolute;
@@ -64,7 +68,7 @@ form span {
 #window {
     position: absolute;
     z-index: 2;
-    top: 45%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
@@ -72,6 +76,7 @@ form span {
     background-color: #ffffff;
     border-radius: 20px;
     border: 2px solid  rgba(153, 153, 153);
+    transition: top .2s linear;
 }
 #window p {
     font-size: 20px;
