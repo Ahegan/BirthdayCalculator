@@ -31,23 +31,30 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
     var verifStart = "";
     var verifEnd = "";
     var verifYear = "";
+    const getValue = (itemName) => input.namedItem(itemName).value;
 
     if (empty === 0) {
-        month = input.namedItem("month").value;
-        day = input.namedItem("day").value;
-        yStart = input.namedItem("yStart").value;
-        yEnd = input.namedItem("yEnd").value;
-        year = input.namedItem("year").value;
+        month = getValue("month");
+        day = getValue("day");
+        yStart = getValue("yStart");
+        yEnd = getValue("yEnd");
+        year = getValue("year");
 
         //for the verification that display the modal if there is an error
-        verifStart = new Date(`${yStart}-${month}-${day}T12:00:00`);
-        verifEnd = new Date(`${yEnd}-${month}-${day}T12:00:00`);
-        verifYear = new Date(`${year}-${month}-${day}T12:00:00`);
+        function verificationYear(el) {
+            return new Date(`${el}-${month}-${day}T12:00:00`);
+        }
+
+        verifStart = verificationYear(yStart);
+        verifEnd = verificationYear(yEnd);
+        verifYear = verificationYear(year);
 
 
         let currentDate;
-        const invalid = ["Invalid Date"];
-        if (!invalid.includes(verifStart) && !invalid.includes(verifEnd) && !invalid.includes(verifYear) && yEnd - yStart < 1000 && yStart <  yEnd) {
+        let conditionsArray = [verifStart != "Invalid Date", verifEnd != "Invalid Date", verifYear != "Invalid Date", yEnd - yStart < 1000, yStart <= yEnd]
+        const isError = (currentValue) => currentValue === true;
+
+        if (conditionsArray.every(isError)) {
             let fullDay;
             let result = document.getElementById("result");
 
@@ -89,14 +96,14 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
         } else if (verifStart == "Invalid Date" || verifEnd == "Invalid Date" || verifYear == "Invalid Date") {
             displayModal("Please enter numeric value");
 
-        }  else if (yStart > yEnd){
-            displayModal("Ending year of the calcul must be superior to the Starting year");
+        } else if (yStart > yEnd) {
+            displayModal("Ending year of the calcul must be superior to the starting year");
         }
 
         //reset options checkboxes to false
         for (i = 0; i <= 4; i++) {
-            let inpurSelectorArray = document.getElementById("selector").querySelectorAll("input");
-            inpurSelectorArray[i].checked = false;
+            let inputSelectorArray = document.getElementById("selector").querySelectorAll("input");
+            inputSelectorArray[i].checked = false;
         }
 
     }
@@ -112,9 +119,11 @@ document.getElementById("close-cross").addEventListener("click", function () {
 var leap = [];
 //options selector display an hide
 document.getElementById("selector").addEventListener("click", function (e) {
+    const forNameCond = (itemName, cond) => e.path[0].checked === cond && e.path[0].name === itemName;
+
     //leap modul
     //display a litle circle on leap years
-    if (e.path[0].checked === true && e.path[0].name === "leap") {
+    if (forNameCond("leap", true)) {
         for (i = 0; i <= yEnd - yStart; i++) {
 
             let calculatedYear = Number(yStart) + i;
@@ -125,7 +134,7 @@ document.getElementById("selector").addEventListener("click", function (e) {
 
         }
 
-    } else if (e.path[0].checked === false && e.path[0].name === "leap") { // stop displaying leap years circle
+    } else if (forNameCond("leap", false)) { // stop displaying leap years circle
         for (i = 0; i <= yEnd - yStart; i++) {
             let calculatedYear = Number(yStart) + i;
             let leapCheck = new Date(`${calculatedYear}-02-29T12:00:00`);
@@ -138,20 +147,28 @@ document.getElementById("selector").addEventListener("click", function (e) {
     }
 
     //week-end modul
-    if (e.path[0].checked === true && e.path[0].name === "week-end") {
+    if (forNameCond("week-end", true)) {
         for (i = 0; i <= yEnd - yStart; i++) {
             let x = document.getElementById(Number(yStart) + i);
             if (x.innerHTML.substring(36, 37) != "S") {
                 x.style.display = "none";
             }
         }
-    } else if (e.path[0].checked === false && e.path[0].name === "week-end") {
+    } else if (forNameCond("week-end", false)) {
         for (i = 0; i <= yEnd - yStart; i++) {
             let x = document.getElementById(Number(yStart) + i);
             if (x.innerHTML.substring(36, 37) != "S") {
                 x.style.display = "block";
             }
         }
+    }
+
+    //display age modul
+    if(forNameCond("age-display", true)){
+        console.log("yup");
+
+    } else if (forNameCond("age-display", false)){
+        console.log("nop");
     }
 
 })
