@@ -25,13 +25,14 @@ function displayModal(displayedText) {
 }
 
 //calculate and display the dates
+const getValue = (itemName) => input.namedItem(itemName).value;
+
 document.getElementById("dataUser").addEventListener("submit", function (e) {
     e.preventDefault();
     result.innerHTML = "";
     var verifStart = "";
     var verifEnd = "";
     var verifYear = "";
-    const getValue = (itemName) => input.namedItem(itemName).value;
 
     if (empty === 0) {
         month = getValue("month");
@@ -51,7 +52,7 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
 
 
         let currentDate;
-        let conditionsArray = [verifStart != "Invalid Date", verifEnd != "Invalid Date", verifYear != "Invalid Date", yEnd - yStart < 1000, yStart <= yEnd]
+        let conditionsArray = [verifStart != "Invalid Date", verifEnd != "Invalid Date", verifYear != "Invalid Date", yEnd - yStart < 1000, yStart <= yEnd, year <= yStart]
         const isError = (currentValue) => currentValue === true;
 
         if (conditionsArray.every(isError)) {
@@ -86,7 +87,7 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
                         break;
                 }
 
-                result.innerHTML += `<div id="${i}" class="result-div" style="position: relative;">In ${i}, your birthday will be on a ${fullDay} </div>` //`In ${i}, your birthday will be on a ${fullDay} <br>`;
+                result.innerHTML += `<div id="year${i}" class="result-div" style="position: relative;">In ${i}, your birthday will be on a ${fullDay} </div>` //`In ${i}, your birthday will be on a ${fullDay} <br>`;
 
 
             }
@@ -98,6 +99,8 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
 
         } else if (yStart > yEnd) {
             displayModal("Ending year of the calcul must be superior to the starting year");
+        } else if (year > yStart){
+            displayModal("Starting year of the calcul must be superior to your birth year")
         }
 
         //reset options checkboxes to false
@@ -119,18 +122,18 @@ document.getElementById("close-cross").addEventListener("click", function () {
 var leap = [];
 //options selector display an hide
 document.getElementById("selector").addEventListener("click", function (e) {
+
     const forNameCond = (itemName, cond) => e.path[0].checked === cond && e.path[0].name === itemName;
 
     //leap modul
     //display a litle circle on leap years
     if (forNameCond("leap", true)) {
         for (i = 0; i <= yEnd - yStart; i++) {
-
             let calculatedYear = Number(yStart) + i;
             let leapCheck = new Date(`${calculatedYear}-02-29T12:00:00`);
             leapCheck = leapCheck.toString();
 
-            if (leapCheck.substring(4, 7) === "Feb") document.getElementById(calculatedYear).innerHTML += `<div class="leap" title="${calculatedYear} is a leap year"></div>`;
+            if (leapCheck.substring(4, 7) === "Feb") document.getElementById(`year${calculatedYear}`).innerHTML += `<div class="leap" title="${calculatedYear} is a leap year"></div>`;
 
         }
 
@@ -140,23 +143,25 @@ document.getElementById("selector").addEventListener("click", function (e) {
             let leapCheck = new Date(`${calculatedYear}-02-29T12:00:00`);
             leapCheck = leapCheck.toString();
 
-            if (leapCheck.substring(4, 7) === "Feb") document.getElementById(calculatedYear).innerHTML = document.getElementById(calculatedYear).innerHTML.replace(`<div class="leap" title="${calculatedYear} is a leap year"></div>`, "");
+            if (leapCheck.substring(4, 7) === "Feb") document.getElementById(`year${calculatedYear}`).innerHTML = document.getElementById(`year${calculatedYear}`).innerHTML.replace(`<div class="leap" title="${calculatedYear} is a leap year"></div>`, "");
 
 
         }
     }
-
     //week-end modul
+
+    
+
     if (forNameCond("week-end", true)) {
         for (i = 0; i <= yEnd - yStart; i++) {
-            let x = document.getElementById(Number(yStart) + i);
+            let x = document.getElementById(`year${Number(yStart) + i}`);
             if (x.innerHTML.substring(36, 37) != "S") {
                 x.style.display = "none";
             }
         }
     } else if (forNameCond("week-end", false)) {
         for (i = 0; i <= yEnd - yStart; i++) {
-            let x = document.getElementById(Number(yStart) + i);
+            let x = document.getElementById(`year${Number(yStart) + i}`);
             if (x.innerHTML.substring(36, 37) != "S") {
                 x.style.display = "block";
             }
@@ -164,12 +169,22 @@ document.getElementById("selector").addEventListener("click", function (e) {
     }
 
     //display age modul
-    if(forNameCond("age-display", true)){
-        console.log("yup");
+    if (forNameCond("age-display", true)) {
 
-    } else if (forNameCond("age-display", false)){
-        console.log("nop");
+        for (i = Number(getValue("yStart")); i <= getValue("yEnd"); i++) {
+            document.styleSheets[0].addRule(`#year${i}::after`, `content: "and you\'ll be ${i - Number(getValue("year"))}"`)
+        }
+
+    } else if (forNameCond("age-display", false)) {
+        
+        for (i = Number(getValue("yStart")); i <= getValue("yEnd"); i++) {
+            document.styleSheets[0].addRule(`#year${i}::after`, 'content: "";')
+
+        }
+
     }
 
 })
+
+
 

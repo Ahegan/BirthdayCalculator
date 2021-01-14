@@ -25,16 +25,12 @@ p {
     text-align: justify;
 }
 
-
-
 form span {
     opacity: 0;
     color: rgb(255, 64, 64);
     font-weight: bolder;
     text-transform: capitalize;
 }
-
-
 
 .grid-container {
     display: grid;
@@ -49,13 +45,14 @@ form span {
     display: block;
 }
 
-/* modal pop-up */  
+/* modal pop-up */
 
 #pop-up {
     visibility: hidden;
     opacity: 0;
     transition: visibility .15s, opacity 0.20s linear;
 }
+
 #pop-up-background {
     position: absolute;
     top: 0;
@@ -65,6 +62,7 @@ form span {
     height: 100%;
     background-color: rgba(153, 153, 153, 0.308);
 }
+
 #window {
     position: absolute;
     z-index: 2;
@@ -75,9 +73,10 @@ form span {
     color: black;
     background-color: #ffffff;
     border-radius: 20px;
-    border: 2px solid  rgba(153, 153, 153);
+    border: 2px solid rgba(153, 153, 153);
     transition: top .2s linear;
 }
+
 #window p {
     font-size: 20px;
     color: inherit;
@@ -87,6 +86,7 @@ form span {
     text-align: center;
     padding: 20px;
 }
+
 #window button {
     display: block;
     text-align: right;
@@ -98,6 +98,7 @@ form span {
     background-color: rgba(255, 255, 255, 0);
     border: none;
 }
+
 #window button:hover {
     text-decoration: underline;
 }
@@ -105,8 +106,8 @@ form span {
 #result {
     line-height: 45px;
     font-size: 30px;
-
 }
+
 .leap {
     position: absolute;
     top: 30%;
@@ -115,15 +116,14 @@ form span {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color:rgb(37, 158, 63);
+    background-color: rgb(37, 158, 63);
     opacity: .4;
     transition: all .4s ease-in-out;
 }
+
 .leap:hover {
     opacity: 1;
 }
-
-
 
 @font-face {
     font-family: 'Montserrat';
@@ -132,7 +132,7 @@ form span {
     src: url(../font/Montserrat.woff2) format('woff2');
 }
 
-@media only screen and (max-width: 1700px){
+@media only screen and (max-width: 1700px) {
     #result {
         font-size: 25px;
     }

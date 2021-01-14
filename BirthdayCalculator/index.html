@@ -3,94 +3,94 @@
 
 <head>
 
-  <title>Birthday calculator</title>
+    <title>Birthday calculator</title>
 
-  <link rel="stylesheet" href="ressources/css/style.css" type="text/css">
-  <meta charset="UTF-8">
-  <meta name="author" content="SIMIONI Enzo">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ressources/css/style.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="author" content="SIMIONI Enzo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-  <div class="grid-container">
+    <div class="grid-container">
 
-    <div class="grid-item">
-      <form id="dataUser">
-        <div class="form-item">
-          <label for="month">Birth month : </label>
-          <input type="text" placeholder="12" name="month" minlength="2" maxlength="2">
-          <span id="span1">please enter a birth month</span>
+        <div class="grid-item">
+            <form id="dataUser">
+                <div class="form-item">
+                    <label for="month">Birth month : </label>
+                    <input type="text" placeholder="12" name="month" minlength="2" maxlength="2">
+                    <span id="span1">please enter a birth month</span>
+                </div>
+
+                <div class="form-item">
+                    <label for="day">Birth day : </label>
+                    <input type="text" placeholder="01" name="day" minlength="2" maxlength="2">
+                    <span id="span2">please enter a birth day</span>
+                </div>
+
+                <div class="form-item">
+                    <label for="year">Birth year : </label>
+                    <input type="text" placeholder="1995" name="year" minlength="4" maxlength="4">
+                    <span id="span3">please enter a birth year</span>
+                </div>
+
+                <div class="form-item">
+                    <label for="yearStart">Starting year of the calcul : </label>
+                    <input type="text" placeholder="2020" name="yStart" minlength="4" maxlength="4">
+                    <span id="span4">please enter a starting year for the calcul</span>
+                </div>
+                <div class="form-item">
+                    <label for="yearEnd">Ending year of the calcul : </label>
+                    <input type="text" placeholder="2080" name="yEnd" minlength="4" maxlength="4">
+                    <span id="span5">please enter an ending year for the calcul</span>
+                </div>
+
+                <input type="submit" id="submitButton">
         </div>
 
-        <div class="form-item">
-          <label for="day">Birth day : </label>
-          <input type="text" placeholder="01" name="day" minlength="2" maxlength="2">
-          <span id="span2">please enter a birth day</span>
+        </form>
+
+        <form id="selector">
+            <div class="grid-item">
+                <input type="checkbox" name="leap" class="option-selecttor">
+                <label for="leap">Highlight leap years</label> <br>
+                <input type="checkbox" name="week-end" class="option-selecttor">
+                <label for="week-end">Only display years where your birthday is on a week-end</label> <br>
+                <input type="checkbox" name="age-display" class="option-selecttor">
+                <label for="age-display">Display your age for each year</label> <br>
+                <input type="checkbox" name="" class="option-selecttor">
+                <label for="">XXX</label> <br>
+                <input type="checkbox" name="" class="option-selecttor">
+                <label for="">XXX</label> <br>
+            </div>
+        </form>
+
+        <div class="grid-item">
+            <div id="result">
+            </div>
         </div>
 
-        <div class="form-item">
-          <label for="year">Birth year : </label>
-          <input type="text" placeholder="1995" name="year" minlength="4" maxlength="4">
-          <span id="span3">please enter a birth year</span>
+        <div class="grid-item">
         </div>
 
-        <div class="form-item">
-          <label for="yearStart">Starting year of the calcul : </label>
-          <input type="text" placeholder="2020" name="yStart" minlength="4" maxlength="4">
-          <span id="span4">please enter a starting year for the calcul</span>
-        </div>
-        <div class="form-item">
-          <label for="yearEnd">Ending year of the calcul : </label>
-          <input type="text" placeholder="2080" name="yEnd" minlength="4" maxlength="4">
-          <span id="span5">please enter an ending year for the calcul</span>
-        </div>
-
-        <input type="submit" id="submitButton">
     </div>
 
-    </form>
 
-    <form id="selector">
-      <div class="grid-item">
-        <input type="checkbox" name="leap" class="option-selecttor">
-        <label for="leap">Highlight leap years</label> <br>
-        <input type="checkbox" name="week-end" class="option-selecttor">
-        <label for="week-end">Only display years where your birthday is on a week-end</label> <br>
-        <input type="checkbox" name="age-display" class="option-selecttor">
-        <label for="age-display">Display your age for each year</label> <br>
-        <input type="checkbox" name="" class="option-selecttor">
-        <label for="">XXX</label> <br>
-        <input type="checkbox" name="" class="option-selecttor">
-        <label for="">XXX</label> <br>
-      </div>
-    </form>
 
-    <div class="grid-item">
-      <div id="result">
-      </div>
+
+
+
+    <div id="pop-up">
+        <div id="pop-up-background">
+            <div id="window">
+                <button id="close-cross">x</button>
+                <p id="alert-message">Enter a corect values</p>
+            </div>
+        </div>
     </div>
 
-    <div class="grid-item">
-    </div>
-
-  </div>
-
-
-
-
-
-
-  <div id="pop-up">
-    <div id="pop-up-background">
-      <div id="window">
-        <button id="close-cross">x</button>
-        <p id="alert-message">Enter a corect values</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="ressources/js/app.js"></script>
+    <script src="ressources/js/app.js"></script>
 </body>
 
 </html>
