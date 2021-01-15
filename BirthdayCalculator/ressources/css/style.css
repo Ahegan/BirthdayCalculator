@@ -37,6 +37,8 @@ form span {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     row-gap: 50px;
+    margin-right: 35px;
+    margin-left: 35px;
     justify-items: center;
     align-items: center;
 }
@@ -44,6 +46,7 @@ form span {
 .grid-item {
     display: block;
 }
+
 
 /* modal pop-up */
 
@@ -108,11 +111,15 @@ form span {
     font-size: 30px;
 }
 
+.result-div{
+    padding-bottom:5px ;
+}
+
 .leap {
     position: absolute;
     top: 30%;
-    transform: translate(-30%, -50%);
-    display: inline-block;
+    transform: translate(-45%, -80%);
+    float: left;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -124,6 +131,7 @@ form span {
 .leap:hover {
     opacity: 1;
 }
+
 
 @font-face {
     font-family: 'Montserrat';

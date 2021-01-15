@@ -95,7 +95,7 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
             displayModal("Too many years to calculate");
 
         } else if (verifStart == "Invalid Date" || verifEnd == "Invalid Date" || verifYear == "Invalid Date") {
-            displayModal("Please enter numeric value");
+            displayModal("Please enter correct values");
 
         } else if (yStart > yEnd) {
             displayModal("Ending year of the calcul must be superior to the starting year");
@@ -104,9 +104,14 @@ document.getElementById("dataUser").addEventListener("submit", function (e) {
         }
 
         //reset options checkboxes to false
-        for (i = 0; i <= 4; i++) {
+        for (i = 0; i < 3; i++) {
             let inputSelectorArray = document.getElementById("selector").querySelectorAll("input");
             inputSelectorArray[i].checked = false;
+        }
+        //reset ::after when submitted
+        for (i = Number(getValue("yStart")); i <= getValue("yEnd"); i++) {
+            document.styleSheets[0].addRule(`#year${i}::after`, 'content: "";')
+
         }
 
     }
@@ -172,7 +177,11 @@ document.getElementById("selector").addEventListener("click", function (e) {
     if (forNameCond("age-display", true)) {
 
         for (i = Number(getValue("yStart")); i <= getValue("yEnd"); i++) {
-            document.styleSheets[0].addRule(`#year${i}::after`, `content: "and you\'ll be ${i - Number(getValue("year"))}"`)
+            let age = i - Number(getValue("year"));
+
+            if (age === 0) document.styleSheets[0].addRule(`#year${i}::after`, `content: "(New born)"`);
+            else document.styleSheets[0].addRule(`#year${i}::after`, `content: "(${i - Number(getValue("year"))})"`)
+            
         }
 
     } else if (forNameCond("age-display", false)) {
