@@ -205,4 +205,18 @@ const animeArray = ["\\(o)-(o)\\ <br>&emsp; __", "\\(o)-(o)\\ <br>&emsp; O", "\\
 
 const smileId = document.getElementById("smile")
 
-smileId.addEventListener("click", () => setInterval(() => smileId.innerHTML = animeArray[randomWithInterval(0, animeArray.length - 1)], 100))
+var interval;
+function start(){
+    interval = setInterval(() => smileId.innerHTML = animeArray[randomWithInterval(0, animeArray.length - 1)], 100)
+}
+
+var compteur = 0;
+
+smileId.addEventListener("click", function(){
+    compteur++
+    const onOff = (compteur % 2)===0?false:true;
+
+    if(onOff) start()
+    else clearInterval(interval)
+})
+
