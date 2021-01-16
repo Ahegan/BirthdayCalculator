@@ -149,6 +149,15 @@ form span {
     opacity: 1;
 }
 
+#smile{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-family: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+
 
 @font-face {
     font-family: 'Montserrat';

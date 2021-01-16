@@ -195,5 +195,14 @@ document.getElementById("selector").addEventListener("click", function (e) {
 
 })
 
+// ------------------------------------------------- Useless smiley modul
 
+function randomWithInterval(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1));
+}
 
+const animeArray = ["\\(o)-(o)\\ <br>&emsp; __", "\\(o)-(o)\\ <br>&emsp; O", "\\(o)-(o)\\ <br>&emsp; o"];
+
+const smileId = document.getElementById("smile")
+
+smileId.addEventListener("click", () => setInterval(() => smileId.innerHTML = animeArray[randomWithInterval(0, animeArray.length - 1)], 100))
