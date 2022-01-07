@@ -1,5 +1,5 @@
 # JS discovery
-I have just started leanring Java Script so I wanted a project to try what I was learning. You can read lower if you want to see the explanation of the project. 
+I have just started leanring Java Script so I wanted a project to try out what I was learning. You can find more information further in the document on each project (only 1 for now). 
 
 ## BirthdayCalculator
 This website calcul the day on which your birthday is over a given period of time. As for *Glitch*, I will add different features while progressing in JS
